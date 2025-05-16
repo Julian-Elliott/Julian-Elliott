@@ -9,7 +9,6 @@ Outside my studies, you'll find me tinkering away in my personal **homelab**, wh
 ### 🔧 Tech I'm currently exploring:
 - Integrating **n8n** workflows into data pipelines for smooth automation and efficient analytics.
 - Containerisation with Docker & Kubernetes
-- Virtualisation platforms like Proxmox and VMware
 - Network and firewall setup for secure home infrastructure
 - IoT and home automation hacks
 
