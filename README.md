@@ -19,7 +19,7 @@ Outside my studies, you'll find me tinkering away in my personal **homelab**, wh
 
 ## 📫 Let's connect!
 - [LinkedIn](https://www.linkedin.com/in/julianelliott/)
-- I'm always keen to chat about data analytics, homelabs, automation ideas, or creative tech solutions—drop me a line anytime!
+- I'm always keen to chat about data analytics, homelabs, automation ideas, or creative tech solutions, drop me a line anytime!
 
 ---
 
