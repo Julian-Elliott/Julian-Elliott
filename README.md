@@ -1,7 +1,7 @@
 # Hello! I'm Julian Elliott 👋
 
 ## 🚀 A bit about me
-I'm currently working towards my MSc in **Data Analytics** at the University of Huddersfield. I’m passionate about turning raw data—both structured and unstructured—into actionable insights that genuinely help businesses thrive.
+I’m passionate about turning raw data—both structured and unstructured—into actionable insights that genuinely help businesses thrive.
 
 ## 🖥️ Homelab Adventures
 Outside my studies, you'll find me tinkering away in my personal **homelab**, where I love getting hands-on with virtualisation, container tech, and automating anything and everything. My goal? A fully self-hosted ecosystem for continuous learning and innovation.
