@@ -1,22 +1,51 @@
 % Professional Experience - Shared Content
 % This file contains all job experience entries
+% Note: Current education/development is handled in education.tex for consistency
 
-% Current Career Break
-\newcommand{\careerBreakEntry}{%
-\cvevent{Strategic Career Development}{Self-directed Innovation Labs}{Jun 2024 -- Present}{Oldbury, UK}
-\begin{itemize}
-  \item \textbf{Mastered advanced analytics} through intensive 16-week Data Analytics Bootcamp (Code Institute) while pursuing MSc Data Analytics (University of Huddersfield)
-\end{itemize}
+% ============================================================================
+% MODULAR CONTENT DEFINITIONS
+% ============================================================================
+
+% Job Responsibilities - Reusable Components
+\newcommand{\automationResponsibilities}{%
+  \item Developed automated processes delivering \textbf{\savingsachievement}
+  \item Led process improvement, reducing onboarding failures by \textbf{\efficiencyachievement}
+  \item Provided mentorship on automation, data, and systems thinking
+  \item Coordinated vendor and 3rd-party automation integrations
 }
+
+\newcommand{\deliveryResponsibilities}{%
+  \item Provided high-quality customer service across digital channels
+  \item Used analytics to identify trends, improve delivery processes
+  \item Mentored colleagues on customer service best practices
+}
+
+\newcommand{\technologyResponsibilities}{%
+  \item Led department tech sections; trained staff in latest products
+  \item Delivered tailored solutions, increased sales by \textbf{\salesachievement}
+  \item Implemented tech support, championed systems change
+}
+
+% Technology Skills for Each Role
+\newcommand{\automationTechSkills}{Data Analytics, Agile, Version Control, Business Analysis, Team Collaboration}
+\newcommand{\deliveryTechSkills}{Customer Service, Microsoft Excel, Team Collaboration}
+\newcommand{\technologyTechSkills}{Customer Service, Product Training, Tech Support}
+
+% Enhanced ATS Technology Lists
+\newcommand{\automationATSTech}{Blue Prism, UiPath, Python, SQL, Data Analytics, Agile methodologies}
+\newcommand{\deliveryATSTech}{Microsoft Excel, Data Analysis, Customer Service platforms}
+\newcommand{\technologyATSTech}{Customer Service, Product Training, Technical Support}
+
+% ============================================================================
+% MODERN CV ENTRIES (AltaCV Format)
+% ============================================================================
 
 % John Lewis - Automation Senior Analyst
 \newcommand{\automationAnalystEntry}{%
 \cvevent{Automation Senior Analyst}{John Lewis Partnership}{Sept 2021 -- Jun 2024}{Remote, UK}
 \begin{itemize}
-  \item \textbf{Revolutionized business operations} by architecting enterprise RPA solutions using Blue Prism and UiPath, \textbf{eliminating 15,000+ manual tasks annually} and generating \textbf{\savingsachievement} across finance and operations
-  \item \textbf{Transformed data accessibility} by engineering real-time Tableau dashboards connected to SQL Server databases, \textbf{slashing reporting cycles from 2 days to 15 minutes}
-  \item \textbf{Optimized critical workflows} through advanced process mining and intelligent automation, \textbf{reducing product onboarding failures by \efficiencyachievement} and accelerating time-to-market
-  \item \textbf{Spearheaded digital integration} initiatives, orchestrating seamless API connections between CRM, ERP, and inventory systems while mentoring cross-functional teams on automation excellence
+  \automationResponsibilities
+  \item Key skills: \automationTechSkills
 \end{itemize}
 }
 
@@ -24,10 +53,8 @@
 \newcommand{\deliveryPartnerEntry}{%
 \cvevent{Customer Delivery Resolution Partner}{John Lewis Partnership}{Oct 2020 -- Sept 2021}{Remote, UK}
 \begin{itemize}
-  \item \textbf{Mastered complex problem-solving} under pressure, \textbf{reducing customer complaints by 40\%} through empathetic listening, critical thinking, and systematic issue resolution
-  \item \textbf{Built trust and rapport} with frustrated customers across digital channels, \textbf{accelerating resolution satisfaction from 48 hours to 4 hours} through clear communication and proactive follow-up
-  \item \textbf{Demonstrated exceptional adaptability} in fast-changing remote environment, quickly learning new systems and processes while maintaining high service standards
-  \item \textbf{Championed team development} by mentoring 12 colleagues on conflict resolution and customer psychology, sharing best practices that were adopted company-wide
+  \deliveryResponsibilities
+  \item Key skills: \deliveryTechSkills
 \end{itemize}
 }
 
@@ -35,66 +62,44 @@
 \newcommand{\technologyPartnerEntry}{%
 \cvevent{Technology Selling Partner}{John Lewis Partnership}{Dec 2013 -- Oct 2020}{Cardiff, UK}
 \begin{itemize}
-  \item \textbf{Pioneered customer-centric sales approach} by developing deep product expertise and consultative selling techniques, \textbf{catapulting conversion rates by \salesachievement} through genuine relationship building
-  \item \textbf{Mastered inventory awareness} through keen observation of customer buying patterns and seasonal trends, \textbf{reducing stock-outs by 25\% while cutting overstock by 30\%} via strategic merchandising
-  \item \textbf{Transformed team capabilities} by creating comprehensive training programs and mentoring systems, \textbf{boosting product knowledge retention by 45\%} and elevating overall department performance
-  \item \textbf{Revolutionized customer support culture} by implementing systematic problem-solving approaches and knowledge sharing, \textbf{accelerating resolution times from 3 days to 30 minutes}
+  \technologyResponsibilities
+  \item Key skills: \technologyTechSkills
 \end{itemize}
 }
 
-% ATS-Friendly versions (for moderncv)
+% ============================================================================
+% ATS-FRIENDLY ENTRIES (ModernCV Format)
+% ============================================================================
 \newcommand{\automationAnalystATS}{%
 \cventry{Sept 2021--Jun 2024}{Automation Senior Analyst}{John Lewis Partnership}{Remote, UK}{}{
 \begin{itemize}
-\item Architected RPA solutions using Blue Prism and UiPath, eliminating 15,000+ manual tasks annually across finance and operations systems
-\item Built real-time data dashboards in Tableau connecting to SQL Server databases, reducing reporting time from 2 days to 15 minutes
-\item Optimized product onboarding workflows through process mining and automation, decreasing failure rates by \efficiencyachievement
-\item Led cross-functional teams in implementing API integrations between CRM, ERP, and inventory management systems
-\item Key technologies: Blue Prism, UiPath, Python, SQL, Tableau, Power BI, Process Mining, API Integration
+\item Developed automated processes delivering \savingsachievement
+\item Led process improvement initiatives, reducing onboarding failures by \efficiencyachievement
+\item Provided mentorship on automation, data analytics, and systems thinking
+\item Coordinated vendor and third-party automation integrations
+\item Designed data dashboards and analytics solutions using Tableau and Power BI
+\item Key technologies: \automationATSTech
 \end{itemize}}
 }
 
 \newcommand{\deliveryPartnerATS}{%
 \cventry{Oct 2020--Sept 2021}{Customer Delivery Resolution Partner}{John Lewis Partnership}{Remote, UK}{}{
 \begin{itemize}
-\item Analyzed delivery failure patterns using Excel pivot tables and SQL queries, reducing customer complaints by 40\%
-\item Built automated tracking dashboards connecting delivery APIs to real-time monitoring systems, decreasing resolution time from 48 hours to 4 hours
-\item Designed data-driven escalation workflows using conditional logic and database triggers, improving first-contact resolution rates by 65\%
-\item Mentored 12 team members on analytical problem-solving techniques, establishing data validation processes adopted company-wide
-\item Key technologies: Microsoft Excel, SQL, API integration, Data Analysis, Dashboard design, Process automation
+\item Provided high-quality customer service across digital channels
+\item Used analytics to identify trends and improve delivery processes
+\item Mentored colleagues on customer service best practices
+\item Developed interactive dashboards to monitor customer satisfaction metrics
+\item Key technologies: \deliveryATSTech
 \end{itemize}}
 }
 
 \newcommand{\technologyPartnerATS}{%
 \cventry{Dec 2013--Oct 2020}{Technology Selling Partner}{John Lewis Partnership}{Cardiff, UK}{}{
 \begin{itemize}
-\item Implemented sales analytics system using Excel VBA and database connections, enabling data-driven product recommendations that increased conversion rates by \salesachievement
-\item Designed inventory optimization algorithms tracking customer purchase patterns and seasonal trends, reducing stock-outs by 25\% while cutting overstock by 30\%
-\item Built automated staff training systems with digital competency tracking and performance metrics, improving product knowledge retention scores by 45\%
-\item Led technical support digitization implementing ticketing systems and knowledge bases, reducing average resolution time from 3 days to 30 minutes
-\item Key technologies: Excel VBA, Database design, Analytics algorithms, Digital training platforms, Ticketing systems, Inventory management
-\end{itemize}}
-}
-
-% John Lewis - Stock Management (Early Career)
-\newcommand{\stockManagementEntry}{%
-\cvevent{Stock Management Specialist}{John Lewis Partnership}{Sept 2009 -- Dec 2013}{London, UK}
-\begin{itemize}
-  \item \textbf{Innovated inventory forecasting} by developing statistical models analyzing seasonal patterns, \textbf{reducing overstock by 35\% and accelerating turnover rates by 20\%}
-  \item \textbf{Automated operational excellence} through barcode scanning integration and database automation, \textbf{eliminating manual errors and saving 15 hours weekly}
-  \item \textbf{Unified data ecosystems} by connecting warehouse, sales, and purchasing systems, \textbf{slashing stock discrepancies by 80\%}
-  \item \textbf{Engineered waste prevention algorithms} analyzing product lifecycles and expiration patterns, \textbf{cutting inventory write-offs by £50K annually}
-\end{itemize}
-}
-
-% ATS-Friendly Stock Management Entry
-\newcommand{\stockManagementATS}{%
-\cventry{Sept 2009--Dec 2013}{Stock Management}{John Lewis Partnership}{London, UK}{}{
-\begin{itemize}
-\item Developed inventory forecasting models using statistical analysis and seasonal demand patterns, reducing overstock by 35\% and improving stock turnover rates by 20\%
-\item Automated stock level monitoring through barcode scanning integration and database triggers, eliminating manual counting errors and saving 15 hours per week
-\item Implemented cross-departmental data synchronization connecting warehouse, sales, and purchasing systems, reducing stock discrepancies by 80\%
-\item Designed waste reduction algorithms analyzing product lifecycle and expiration patterns, cutting inventory write-offs by £50K annually
-\item Key technologies: Inventory management systems, Barcode scanning, Database integration, Statistical analysis, Process automation
+\item Led department tech sections and trained staff in latest products
+\item Delivered tailored solutions, increased sales by \salesachievement
+\item Implemented tech support systems and championed change initiatives
+\item Developed sales strategies based on data analysis and market trends
+\item Key technologies: \technologyATSTech
 \end{itemize}}
 }
