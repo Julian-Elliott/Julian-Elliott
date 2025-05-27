@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%
+% ATS-Friendly CV for Julian Elliott
+% Single-column format optimized for Applicant Tracking Systems
+%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% moderncv themes
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+
+% character encoding
+\usepackage[utf8]{inputenc}
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+
+%% Load shared data modules
+\input{../data/personal-info}
+\input{../data/experience}
+\input{../data/skills}
+\input{../data/education}
+
+% personal data
+\name{\myname}
+\title{\mytitle}
+\address{\mylocation}{}
+\phone[mobile]{\myphone}
+\email{\myemail}
+\social[linkedin]{\mylinkedin}
+\social[github]{\mygithub}
+
+\begin{document}
+
+\makecvtitle
+
+\section{Professional Summary}
+\mysummary
+
+\section{Technical Skills}
+\cvitem{Programming Languages}{\programmingLanguages}
+\cvitem{Analytics \& BI Tools}{\analyticsTools}
+\cvitem{Automation Platforms}{\automationPlatforms}
+\cvitem{Project Management}{\projectManagement}
+\cvitem{Version Control}{\versionControl}
+\cvitem{Cloud Platforms}{\cloudPlatforms}
+\cvitem{Specializations}{\specializations}
+
+\section{Professional Experience}
+
+\automationAnalystATS
+
+\deliveryPartnerATS
+
+\technologyPartnerATS
+
+\cventry{Sept 2009--Dec 2013}{Stock Management}{John Lewis Partnership}{London, UK}{}{
+\begin{itemize}
+\item Managed inventory operations and implemented efficiency improvements
+\item Utilized data analysis to optimize stock levels and reduce waste
+\item Coordinated with multiple departments to ensure seamless operations
+\end{itemize}}
+
+\section{Education}
+\mscEntryATS
+
+\bscEntryATS
+
+\section{Current Professional Development}
+\currentEducationATS
+
+\section{Certifications}
+\cvitem{Microsoft}{\azureDataFundamentals}
+\cvitem{Cisco}{\ciscoDataAnalytics}
+\cvitem{GitHub}{\githubFoundations}
+\cvitem{Tableau}{\tableauVisualize}
+\cvitem{Tableau}{\tableauInteract}
+\cvitem{Cisco}{\ciscoITEssentials}
+\cvitem{Cisco}{\ciscoPacketTracer}
+
+\section{Key Achievements}
+\cvitem{Cost Savings}{Delivered \savingsachievement through automation solutions}
+\cvitem{Efficiency Gains}{Improved product onboarding efficiency by \efficiencyachievement}
+\cvitem{Sales Growth}{Led departments to achieve \salesachievement increase in annual sales}
+\cvitem{Leadership}{Successfully mentored multiple junior team members}
+\cvitem{Innovation}{Implemented cutting-edge automation technologies across business processes}
+
+\section{Areas of Interest}
+\cvitem{Professional}{\professionalInterests}
+\cvitem{Personal}{\personalInterests}
+
+\end{document}

@@ -1,0 +1,70 @@
+# LaTeX generated files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
+
+# Output directory (keep structure, ignore PDFs)
+output/*.pdf
+output/*.aux
+output/*.log
+
+# Personal configuration (users may want to keep private)
+config/my-cv-config.yaml
+
+# Generated PDFs (optional - remove these lines if you want to track PDFs)
+*-CV.pdf
+*.pdf
+
+# Personal photos (users should add their own)
+*-photo.jpg
+!julian-elliott-photo.jpg  # Keep example photo
+
+# Backup files
+*~
+*.backup
+*-old.md
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp

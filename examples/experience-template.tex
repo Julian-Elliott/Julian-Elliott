@@ -1,0 +1,54 @@
+% Example Experience Template
+% Copy this structure and adapt it for your own experience
+
+% Current Position Example
+\newcommand{\currentPositionEntry}{%
+\cvevent{Your Current Job Title}{Company Name}{Start Date -- Present}{Location}
+\begin{itemize}
+  \item Achievement with quantified result (\textbf{X\% improvement}).
+  \item Led initiative that delivered \textbf{[quantified impact]}.
+  \item Developed [specific solution] for [business problem].
+  \item Mentored [number] team members in [specific skills].
+  \item Key skills: [Skill 1], [Skill 2], [Skill 3]
+\end{itemize}
+}
+
+% Previous Position Example
+\newcommand{\previousPositionEntry}{%
+\cvevent{Previous Job Title}{Company Name}{Start Date -- End Date}{Location}
+\begin{itemize}
+  \item Accomplished [specific task] resulting in [quantified outcome].
+  \item Implemented [solution] that improved [metric] by [percentage].
+  \item Collaborated with [stakeholders] to achieve [goal].
+  \item Key skills: [Relevant Skills]
+\end{itemize}
+}
+
+% ATS-Friendly versions (for moderncv template)
+\newcommand{\currentPositionATS}{%
+\cventry{Start Date--Present}{Your Current Job Title}{Company Name}{Location}{}{
+\begin{itemize}
+\item Achievement with quantified result (X\% improvement)
+\item Led initiative that delivered [quantified impact]
+\item Developed [specific solution] for [business problem]
+\item Mentored [number] team members in [specific skills]
+\item Key technologies: [Tech 1], [Tech 2], [Tech 3]
+\end{itemize}}
+}
+
+\newcommand{\previousPositionATS}{%
+\cventry{Start Date--End Date}{Previous Job Title}{Company Name}{Location}{}{
+\begin{itemize}
+\item Accomplished [specific task] resulting in [quantified outcome]
+\item Implemented [solution] that improved [metric] by [percentage]
+\item Collaborated with [stakeholders] to achieve [goal]
+\item Key technologies: [Relevant Technologies]
+\end{itemize}}
+}
+
+% Tips for writing effective experience entries:
+% 1. Start with action verbs (Developed, Led, Implemented, Achieved)
+% 2. Include quantified results whenever possible (percentages, amounts, timelines)
+% 3. Focus on impact and outcomes, not just responsibilities
+% 4. Tailor keywords to your target industry
+% 5. Keep entries concise but specific

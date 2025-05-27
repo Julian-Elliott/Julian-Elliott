@@ -1,0 +1,51 @@
+# CV Template Configuration
+# This file contains template-wide settings and build preferences
+# Personal data is stored in the data/*.tex files to maintain single source of truth
+
+# Template Metadata
+template:
+  name: "Modular LaTeX CV Template"
+  version: "1.0.0"
+  author: "Julian Elliott (example)"
+  description: "Professional CV system with modular content management"
+
+# Build Configuration
+build:
+  default_engine: "xelatex"  # xelatex, lualatex, or pdflatex
+  output_directory: "output"
+  clean_auxiliary_files: true
+  docker_image: "cv-builder"
+
+# Output Filenames (customize these)
+output:
+  modern_cv: "Modern-CV.pdf"
+  ats_cv: "ATS-Friendly-CV.pdf"
+  
+# Template Colors (for modern CV customization)
+colors:
+  primary: "VividPurple"     # Main theme color
+  primary_hex: "#3E0097"     # Hex value for primary color
+  text: "SlateGrey"          # Main text color
+  light: "LightGrey"         # Light text color
+
+# Development Settings
+development:
+  verbose_build: false
+  keep_logs: true
+  auto_clean: true
+
+# Template Features
+features:
+  photo_support: true
+  skill_ratings: true
+  activity_wheel: true
+  certification_links: true
+  ats_optimization: true
+
+# Notes for Template Users:
+# - Personal information is stored in data/personal-info.tex
+# - Work experience is stored in data/experience.tex  
+# - Skills and certifications are in data/skills.tex
+# - Education details are in data/education.tex
+# - Run ./setup-cv.sh to customize for your own use
+# - This config file controls template-wide settings only

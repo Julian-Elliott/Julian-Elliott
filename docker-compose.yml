@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  cv-builder:
+    build: .
+    image: cv-builder:latest
+    volumes:
+      - .:/cv
+      - ./output:/cv/output
+    working_dir: /cv
+    environment:
+      - TEXMFHOME=/tmp/texmf
+      - TEXMFVAR=/tmp/texmf-var
+      - TEXMFCONFIG=/tmp/texmf-config
+    command: ./build-cv.sh --local
+    
+  # Development environment for interactive use
+  cv-dev:
+    build: .
+    image: cv-builder:latest
+    volumes:
+      - .:/cv
+      - ./output:/cv/output
+    working_dir: /cv
+    environment:
+      - TEXMFHOME=/tmp/texmf
+      - TEXMFVAR=/tmp/texmf-var
+      - TEXMFCONFIG=/tmp/texmf-config
+    command: tail -f /dev/null  # Keep container running
+    stdin_open: true
+    tty: true
