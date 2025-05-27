@@ -19,6 +19,10 @@ output/*.pdf
 output/*.aux
 output/*.log
 
+# VS Code workspace settings (keep these for consistent development)
+# .vscode/ folder is included for consistent development experience
+# Users can override locally if needed
+
 # Personal configuration (users may want to keep private)
 config/my-cv-config.yaml
 
@@ -29,6 +33,20 @@ config/my-cv-config.yaml
 # Personal photos (users should add their own)
 *-photo.jpg
 !julian-elliott-photo.jpg  # Keep example photo
+
+# macOS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*~
+.#*
+\#*#
 
 # Backup files
 *~

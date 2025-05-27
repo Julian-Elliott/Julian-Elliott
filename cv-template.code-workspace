@@ -1,0 +1,213 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        // LaTeX Workshop settings
+        "latex-workshop.latex.tools": [
+            {
+                "name": "xelatex",
+                "command": "xelatex",
+                "args": [
+                    "-synctex=1",
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "%DOCFILE%"
+                ]
+            },
+            {
+                "name": "lualatex",
+                "command": "lualatex",
+                "args": [
+                    "-synctex=1",
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "%DOCFILE%"
+                ]
+            },
+            {
+                "name": "pdflatex",
+                "command": "pdflatex",
+                "args": [
+                    "-synctex=1",
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "%DOCFILE%"
+                ]
+            }
+        ],
+        "latex-workshop.latex.recipes": [
+            {
+                "name": "XeLaTeX (CV Default)",
+                "tools": ["xelatex", "xelatex"]
+            },
+            {
+                "name": "LuaLaTeX",
+                "tools": ["lualatex", "lualatex"]
+            },
+            {
+                "name": "PDFLaTeX",
+                "tools": ["pdflatex", "pdflatex"]
+            }
+        ],
+        "latex-workshop.latex.autoClean.run": "onBuilt",
+        "latex-workshop.latex.clean.fileTypes": [
+            "*.aux",
+            "*.bbl",
+            "*.bcf",
+            "*.blg",
+            "*.idx",
+            "*.ind",
+            "*.lof",
+            "*.lot",
+            "*.out",
+            "*.toc",
+            "*.acn",
+            "*.acr",
+            "*.alg",
+            "*.glg",
+            "*.glo",
+            "*.gls",
+            "*.fls",
+            "*.log",
+            "*.fdb_latexmk",
+            "*.snm",
+            "*.synctex.gz",
+            "*.nav",
+            "*.vrb",
+            "*.run.xml"
+        ],
+        "latex-workshop.view.pdf.viewer": "tab",
+        "latex-workshop.latex.outDir": "./output",
+        "latex-workshop.latex.rootFile.doNotPrompt": true,
+        "latex-workshop.intellisense.package.enabled": true,
+        "latex-workshop.intellisense.unimathsymbols.enabled": true,
+        "latex-workshop.latex.build.forceRecipeUsage": false,
+        
+        // File associations
+        "files.associations": {
+            "*.tex": "latex"
+        },
+        
+        // Editor settings for LaTeX
+        "editor.wordWrap": "on",
+        "editor.rulers": [80],
+        "editor.formatOnSave": false,
+        "editor.tabSize": 2,
+        
+        // Exclude auxiliary files from file explorer
+        "files.exclude": {
+            "**/*.aux": true,
+            "**/*.bbl": true,
+            "**/*.bcf": true,
+            "**/*.blg": true,
+            "**/*.fdb_latexmk": true,
+            "**/*.fls": true,
+            "**/*.log": true,
+            "**/*.out": true,
+            "**/*.run.xml": true,
+            "**/*.synctex.gz": true,
+            "**/*.toc": true,
+            "**/*.nav": true,
+            "**/*.snm": true,
+            "**/*.vrb": true
+        },
+        
+        // Search settings
+        "search.exclude": {
+            "**/output/**": true,
+            "**/*.aux": true,
+            "**/*.log": true,
+            "**/*.fls": true,
+            "**/*.fdb_latexmk": true
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "james-yu.latex-workshop",
+            "ms-vscode.vscode-json",
+            "timonwong.shellcheck",
+            "mads-hartmann.bash-ide-vscode"
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Build Modern CV",
+                "type": "shell",
+                "command": "./build-cv.sh",
+                "args": ["--modern"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "Build ATS CV",
+                "type": "shell",
+                "command": "./build-cv.sh",
+                "args": ["--ats"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "Build All CVs",
+                "type": "shell",
+                "command": "./build-cv.sh",
+                "args": ["--docker"],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "Clean Output",
+                "type": "shell",
+                "command": "./build-cv.sh",
+                "args": ["--clean"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "Docker Build",
+                "type": "shell",
+                "command": "docker-compose",
+                "args": ["up", "--build"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": []
+            }
+        ]
+    }
+}

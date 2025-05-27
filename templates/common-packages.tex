@@ -1,0 +1,81 @@
+% LaTeX Common Packages and Settings
+% This file contains shared package imports and configurations
+% Include this in all CV templates for consistency
+
+% Essential packages for modern LaTeX
+\usepackage[utf8]{inputenc}         % Input encoding
+\usepackage[T1]{fontenc}            % Font encoding
+\usepackage{microtype}              % Improved typography
+\usepackage{babel}                  % Language support
+
+% Color and graphics
+\usepackage{xcolor}                 % Advanced color support
+\usepackage{graphicx}               % Graphics inclusion
+\usepackage{tikz}                   % Advanced graphics
+
+% Layout and spacing
+\usepackage{geometry}               % Page layout
+\usepackage{setspace}               % Line spacing
+\usepackage{enumitem}               % List customization
+\usepackage{parskip}                % Paragraph spacing
+
+% Links and hyperref (load last)
+\usepackage{url}                    % URL formatting
+\usepackage{hyperref}               % Hyperlinks
+
+% Configure hyperref for better PDF output
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue,
+    filecolor=blue,
+    pdfpagemode=UseNone,
+    pdfstartview=FitH,
+    pdftitle={CV - \myname},
+    pdfauthor={\myname},
+    pdfsubject={Curriculum Vitae},
+    pdfkeywords={CV, Resume, \myname},
+    pdfcreator={LaTeX with CV Template System},
+    pdfproducer={XeLaTeX}
+}
+
+% Configure microtype for better text rendering
+\microtypesetup{
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100,
+    stretch=10,
+    shrink=10
+}
+
+% Improved list formatting
+\setlist{
+    itemsep=0pt,
+    parsep=0pt,
+    topsep=0pt,
+    partopsep=0pt,
+    leftmargin=*
+}
+
+% Better paragraph formatting
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
+
+% Define consistent spacing commands
+\newcommand{\smallskip}{\vspace{0.25\baselineskip}}
+\newcommand{\medskip}{\vspace{0.5\baselineskip}}
+\newcommand{\bigskip}{\vspace{\baselineskip}}
+
+% Error handling for missing data
+\providecommand{\myname}{Your Name Here}
+\providecommand{\mytitle}{Your Title Here}
+\providecommand{\myemail}{your.email@example.com}
+\providecommand{\myphone}{+1 234 567 8900}
+\providecommand{\mylocation}{Your Location}
+\providecommand{\mylinkedin}{yourlinkedin}
+\providecommand{\mygithub}{yourgithub}
+\providecommand{\myphoto}{placeholder-photo}

@@ -1,27 +1,38 @@
 %%%%%%%%%%%%%%%%%
-% ATS-Friendly CV for Julian Elliott
-% Single-column format optimized for Applicant Tracking Systems
+% ATS-Friendly CV Template - Professional LaTeX CV System
+% Optimized for Applicant Tracking Systems and automated parsing
+%
+% Features:
+% - Single-column layout for better ATS compatibility
+% - Standard fonts and formatting
+% - Semantic structure with clear headings
+% - Minimal graphics and complex formatting
+% - ModernCV banking style for professional appearance
 %%%%%%%%%%%%%%%%%
 
 \documentclass[11pt,a4paper,sans]{moderncv}
 
-% moderncv themes
-\moderncvstyle{banking}
-\moderncvcolor{blue}
+% Template configuration optimized for ATS
+\moderncvstyle{banking}    % Clean, professional style
+\moderncvcolor{blue}       % Conservative color scheme
 
-% character encoding
+% Essential packages for proper encoding
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
-% adjust the page margins
+% Page layout optimization for readability
 \usepackage[scale=0.75]{geometry}
 
-%% Load shared data modules
+% Improved typography
+\usepackage{microtype}
+
+% Load shared data modules - single source of truth
 \input{../data/personal-info}
 \input{../data/experience}
 \input{../data/skills}
 \input{../data/education}
 
-% personal data
+% Configure personal information with semantic structure
 \name{\myname}
 \title{\mytitle}
 \address{\mylocation}{}
@@ -29,6 +40,16 @@
 \email{\myemail}
 \social[linkedin]{\mylinkedin}
 \social[github]{\mygithub}
+
+% Document metadata for better PDF properties
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle={CV - \myname},
+    pdfauthor={\myname},
+    pdfsubject={ATS-Friendly Curriculum Vitae},
+    pdfkeywords={CV, Resume, ATS, \myname, \mytitle}
+  }
+}
 
 \begin{document}
 

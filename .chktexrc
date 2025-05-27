@@ -1,0 +1,33 @@
+# ChkTeX configuration for LaTeX CV template
+# Professional LaTeX linting rules for CV development
+
+# Enable all standard warnings
+VerbosityLevel=2
+
+# Disable specific warnings that are acceptable in CV context
+# Warning 1: Command terminated with space
+CmdLine { -n1 }
+
+# Warning 8: Wrong length of dash may have been used
+CmdLine { -n8 }
+
+# Warning 13: Interword spacing should perhaps be used
+CmdLine { -n13 }
+
+# Warning 36: You should use \cdots to achieve an ellipsis
+CmdLine { -n36 }
+
+# Custom rules for CV templates
+TabSize=2
+
+# File extensions to check
+InputFiles=*.tex
+
+# Quiet mode for automated builds
+QuietMode=0
+
+# Output format
+OutputFormat=Text
+
+# Show line numbers
+ShowWarnings=1
