@@ -23,23 +23,18 @@
 \usepackage{paracol}
 
 % Font configuration - optimized for professional appearance
-\ifxetexorluatex
-  % XeLaTeX/LuaLaTeX: Use system fonts for better typography
-  \setmainfont{Roboto Slab}[
-    BoldFont=Roboto Slab Bold,
-    ItalicFont=Roboto Slab Italic,
-    BoldItalicFont=Roboto Slab Bold Italic
-  ]
-  \setsansfont{Lato}[
-    BoldFont=Lato Bold,
-    ItalicFont=Lato Italic,
-    BoldItalicFont=Lato Bold Italic
-  ]
+\RequirePackage{iftex}
+\iftutex
+  % XeLaTeX/LuaLaTeX: Use TeX Gyre fonts (available in TeX Live)
+  \setmainfont{TeX Gyre Termes}
+  \setsansfont{TeX Gyre Heros}
+  \setmonofont{TeX Gyre Cursor}
   \renewcommand{\familydefault}{\sfdefault}
 \else
   % PDFLaTeX: Use package fonts
-  \usepackage[rm]{roboto}
-  \usepackage[defaultsans]{lato}
+  \usepackage[T1]{fontenc}
+  \usepackage{tgtermes}
+  \usepackage{tgheros}
   \renewcommand{\familydefault}{\sfdefault}
 \fi
 
@@ -70,13 +65,13 @@
 \renewcommand{\ratingmarker}{\faCircle}
 
 % Load shared data modules - single source of truth
-\input{../data/personal-info}
-\input{../data/experience}
-\input{../data/skills}
-\input{../data/education}
+\input{./data/personal-info}
+\input{./data/experience}
+\input{./data/skills}
+\input{./data/education}
 
 % Optional: Bibliography support for publications
-% \addbibresource{../data/publications.bib}
+% \addbibresource{./data/publications.bib}
 
 % Document metadata for PDF properties
 \AtBeginDocument{

@@ -27,15 +27,16 @@
 \usepackage{microtype}
 
 % Load shared data modules - single source of truth
-\input{../data/personal-info}
-\input{../data/experience}
-\input{../data/skills}
-\input{../data/education}
+\input{data/personal-info}
+\input{data/experience}
+\input{data/skills}
+\input{data/education}
 
 % Configure personal information with semantic structure
-\name{\myname}
+% Note: These commands must be in preamble for moderncv
+\name{\myfirstname}{\mysurname}
 \title{\mytitle}
-\address{\mylocation}{}
+\address{\mylocation}{}{}
 \phone[mobile]{\myphone}
 \email{\myemail}
 \social[linkedin]{\mylinkedin}

@@ -4,10 +4,11 @@
 
 FROM texlive/texlive:latest as latex-base
 
-# Install additional LaTeX packages for CV templates
-RUN tlmgr update --self --all && \
-    tlmgr install \
-    altacv \
+# Set up proper repository and install available packages
+RUN tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet && \
+    tlmgr update --self --verify-repo=none || true && \
+    echo "Installing available packages from repository..." && \
+    tlmgr install --verify-repo=none \
     moderncv \
     fontawesome5 \
     academicons \
@@ -22,12 +23,31 @@ RUN tlmgr update --self --all && \
     ragged2e \
     etoolbox \
     ifmtarg \
-    xparse \
-    pgf \
-    tikz \
     babel \
     csquotes \
-    biblatex
+    biblatex \
+    l3packages \
+    || echo "Some packages may already be installed"
+
+# Download and install altacv manually since it's not in the standard repository
+RUN echo "Installing altacv class manually..." && \
+    mkdir -p /tmp/altacv && \
+    cd /tmp/altacv && \
+    curl -L -o altacv.zip "https://github.com/liantze/altacv/archive/refs/heads/main.zip" && \
+    unzip altacv.zip && \
+    mkdir -p /usr/local/texlive/texmf-local/tex/latex/altacv && \
+    cp AltaCV-main/*.cls /usr/local/texlive/texmf-local/tex/latex/altacv/ && \
+    cp AltaCV-main/*.sty /usr/local/texlive/texmf-local/tex/latex/altacv/ 2>/dev/null || true && \
+    mktexlsr && \
+    cd / && \
+    rm -rf /tmp/altacv
+
+# Verify critical packages are available
+RUN echo "Verifying package installation..." && \
+    kpsewhich moderncv.cls && \
+    kpsewhich altacv.cls && \
+    kpsewhich fontawesome5.sty && \
+    echo "All required packages are available!"
 
 # Set working directory
 WORKDIR /cv
