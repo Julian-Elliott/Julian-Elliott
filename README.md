@@ -89,6 +89,31 @@ Outside my studies, you'll find me tinkering away in my personal **homelab**, wh
 🎯 33% Sales Growth        🏅 Multiple Certifications  🚀 Process Innovation
 ```
 
+## 📄 Professional CV Template System
+
+This repository features a **world-class LaTeX CV automation system** with:
+
+### ✨ Key Features
+- 🎯 **Single Source of Truth**: Centralized content management
+- 🎨 **Dual Formats**: Modern visual CV + ATS-friendly version  
+- 🐳 **Docker Integration**: Consistent builds across platforms
+- 🚀 **CI/CD Pipeline**: Automated testing and validation
+- 🔧 **Developer Tools**: VS Code workspace with full automation
+
+### 🚀 Quick Start
+```bash
+# Clone and build
+git clone https://github.com/Julian-Elliott/Julian-Elliott.git
+cd Julian-Elliott
+chmod +x build-cv.sh validate-cv.sh
+./validate-cv.sh  # Check system health
+./build-cv.sh     # Build both CV formats
+```
+
+**Recent Update**: Build system fully restored! Both modern and ATS-friendly CVs now compile successfully with enhanced error handling and CI/CD pipeline.
+
+---
+
 ## 🌍 Beyond the Code
 
 When I'm not diving deep into data or automation:

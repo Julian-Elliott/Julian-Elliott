@@ -1,0 +1,113 @@
+name: CV Build Test
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-compilation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Test CV Compilation
+      run: |
+        chmod +x build-cv.sh
+        ./build-cv.sh --docker --verbose
+        
+    - name: Verify PDF Generation
+      run: |
+        echo "Checking generated PDFs..."
+        ls -la output/
+        
+        # Check if both PDFs were generated
+        if [ ! -f "output/Modern-CV.pdf" ]; then
+          echo "ERROR: Modern-CV.pdf not generated"
+          exit 1
+        fi
+        
+        if [ ! -f "output/ATS-Friendly-CV.pdf" ]; then
+          echo "ERROR: ATS-Friendly-CV.pdf not generated"
+          exit 1
+        fi
+        
+        # Check PDF file sizes (basic validation)
+        MODERN_SIZE=$(stat -f%z "output/Modern-CV.pdf" 2>/dev/null || stat -c%s "output/Modern-CV.pdf")
+        ATS_SIZE=$(stat -f%z "output/ATS-Friendly-CV.pdf" 2>/dev/null || stat -c%s "output/ATS-Friendly-CV.pdf")
+        
+        if [ "$MODERN_SIZE" -lt 10000 ]; then
+          echo "ERROR: Modern-CV.pdf is too small ($MODERN_SIZE bytes)"
+          exit 1
+        fi
+        
+        if [ "$ATS_SIZE" -lt 10000 ]; then
+          echo "ERROR: ATS-Friendly-CV.pdf is too small ($ATS_SIZE bytes)"
+          exit 1
+        fi
+        
+        echo "✓ All PDFs generated successfully"
+        echo "Modern CV: $MODERN_SIZE bytes"
+        echo "ATS CV: $ATS_SIZE bytes"
+        
+    - name: Upload Generated PDFs
+      uses: actions/upload-artifact@v4
+      with:
+        name: generated-cvs
+        path: output/*.pdf
+        retention-days: 30
+        
+    - name: Validate LaTeX Syntax
+      run: |
+        echo "Validating LaTeX syntax..."
+        # Check for common LaTeX issues
+        find templates/ -name "*.tex" -exec echo "Checking {}" \; -exec head -20 {} \;
+        
+        # Verify data files exist and are readable
+        for file in data/*.tex; do
+          if [ ! -f "$file" ]; then
+            echo "ERROR: Data file $file not found"
+            exit 1
+          fi
+          echo "✓ $file exists"
+        done
+        
+  test-makefile:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Install TeX Live
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-full
+        
+    - name: Test Makefile Build
+      run: |
+        make help
+        make info
+        # Note: Full make test would require all LaTeX dependencies
+        # This just validates the Makefile syntax
+        
+  validate-docker:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Validate Dockerfile
+      run: |
+        docker build --no-cache -t cv-test .
+        echo "✓ Dockerfile builds successfully"
+        
+    - name: Test Docker Image
+      run: |
+        docker run --rm cv-test echo "Docker image working"

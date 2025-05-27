@@ -12,12 +12,23 @@
 2. Install recommended extensions when prompted
 3. Use `Ctrl+Shift+P` → "Tasks: Run Task" to see available build options
 
+### ✅ System Validation
+**New!** Run the validation script to check your system:
+```bash
+chmod +x validate-cv.sh
+./validate-cv.sh
+```
+This will check all dependencies, file structure, and LaTeX syntax.
+
 ## 🛠️ Development Workflow
 
 ### Building CVs
 - **Fastest**: `make all` (if you have LaTeX installed locally)
-- **Most Compatible**: Use VS Code Task: "Build All CVs" (Docker)
+- **Most Compatible**: `./build-cv.sh --docker` (Docker)
 - **Development**: `make watch` for automatic rebuilds
+- **Selective**: `./build-cv.sh --modern` or `./build-cv.sh --ats`
+
+**Recent Fix**: Template path issues have been resolved. Both modern and ATS-friendly CVs now compile successfully with proper data file imports.
 
 ### File Structure
 ```
