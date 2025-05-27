@@ -91,12 +91,21 @@ command_exists() {
 
 # Function to detect LaTeX installation
 detect_latex() {
-    if command_exists xelatex; then
+    # Prefer xelatex
+    if command -v xelatex >/dev/null 2>&1; then
         echo "xelatex"
-    elif command_exists lualatex; then
+    elif [ -x "/Library/TeX/texbin/xelatex" ]; then
+        echo "/Library/TeX/texbin/xelatex"
+    # Fallback to lualatex
+    elif command -v lualatex >/dev/null 2>&1; then
         echo "lualatex"
-    elif command_exists pdflatex; then
+    elif [ -x "/Library/TeX/texbin/lualatex" ]; then
+        echo "/Library/TeX/texbin/lualatex"
+    # Fallback to pdflatex
+    elif command -v pdflatex >/dev/null 2>&1; then
         echo "pdflatex"
+    elif [ -x "/Library/TeX/texbin/pdflatex" ]; then
+        echo "/Library/TeX/texbin/pdflatex"
     else
         echo ""
     fi
@@ -186,12 +195,22 @@ compile_locally() {
             fi
         else
             echo -e "${RED}✗ Second pass failed for $(basename "$template")${NC}"
+            if [ -f "$(basename "${template%.tex}.log")" ]; then
+                echo -e "${YELLOW}--- Recent log messages from $(basename "${template%.tex}.log") ---${NC}"
+                tail -n 30 "$(basename "${template%.tex}.log")"
+                echo -e "${YELLOW}--- End of log messages ---${NC}"
+            fi
             if [ "$VERBOSE" != true ]; then
                 echo -e "${YELLOW}  Run with --verbose to see detailed errors${NC}"
             fi
         fi
     else
         echo -e "${RED}✗ First pass failed for $(basename "$template")${NC}"
+        if [ -f "$(basename "${template%.tex}.log")" ]; then
+            echo -e "${YELLOW}--- Recent log messages from $(basename "${template%.tex}.log") ---${NC}"
+            tail -n 30 "$(basename "${template%.tex}.log")"
+            echo -e "${YELLOW}--- End of log messages ---${NC}"
+        fi
         if [ "$VERBOSE" != true ]; then
             echo -e "${YELLOW}  Run with --verbose to see detailed errors${NC}"
         fi
@@ -205,7 +224,7 @@ compile_locally() {
 # Function to clean auxiliary files
 clean_aux_files() {
     echo -e "${BLUE}🧹 Cleaning auxiliary files...${NC}"
-    find . -name "*.aux" -o -name "*.log" -o -name "*.out" -o -name "*.fdb_latexmk" -o -name "*.fls" -o -name "*.synctex.gz" | xargs rm -f
+    find . \( -name "*.aux" -o -name "*.log" -o -name "*.out" -o -name "*.fdb_latexmk" -o -name "*.fls" -o -name "*.synctex.gz" \) -exec rm -f {} +
     echo -e "${GREEN}✓ Auxiliary files cleaned${NC}"
 }
 

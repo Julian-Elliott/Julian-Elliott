@@ -19,16 +19,19 @@
 % Page layout optimization
 \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
 
+% Include common packages and configurations
+\input{common-packages}
+
 % Advanced typography with paracol for parallel columns
 \usepackage{paracol}
 
 % Font configuration - optimized for professional appearance
 \RequirePackage{iftex}
 \iftutex
-  % XeLaTeX/LuaLaTeX: Use TeX Gyre fonts (available in TeX Live)
-  \setmainfont{TeX Gyre Termes}
-  \setsansfont{TeX Gyre Heros}
-  \setmonofont{TeX Gyre Cursor}
+  % XeLaTeX/LuaLaTeX: Use system fonts available on macOS
+  \setmainfont{Times New Roman}
+  \setsansfont{Helvetica}
+  \setmonofont{Menlo}
   \renewcommand{\familydefault}{\sfdefault}
 \else
   % PDFLaTeX: Use package fonts
@@ -55,10 +58,11 @@
 \colorlet{body}{LightGrey}
 
 % Typography customization for professional appearance
-\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\namefont}{\LARGE\rmfamily\bfseries} % was \Huge
+\renewcommand{\taglinefont}{\normalsize\bfseries}   % was \large
 \renewcommand{\personalinfofont}{\footnotesize}
-\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
-\renewcommand{\cvsubsectionfont}{\large\bfseries}
+\renewcommand{\cvsectionfont}{\normalsize\rmfamily\bfseries} % was \large
+\renewcommand{\cvsubsectionfont}{\small\bfseries}   % was \normalsize
 
 % Enhanced list and rating markers
 \renewcommand{\itemmarker}{{\small\textbullet}}
@@ -120,7 +124,11 @@
 
 % LEFT COLUMN
 
+\cvsection{Professional Summary}
+\input{../data/first-fold-intro}
+
 \cvsection{A Day in My Life}
+\hspace*{-1.0cm}
 \wheelchart{1.5cm}{0.5cm}{%
   30/10em/accent!60/Data bootcamp,
   20/9em/accent!40/MSc study,
@@ -150,19 +158,14 @@
 
 % RIGHT COLUMN
 
-\cvsection{Technical \& Professional Skills}
-\cvskill{Python}{\skillPython}
-\cvskill{SQL}{\skillSQL}
-\cvskill{Tableau}{\skillTableau}
-\cvskill{Power BI}{\skillPowerBI}
-\cvskill{Blue Prism}{\skillBluePrism}
-\cvskill{UiPath}{\skillUiPath}
-\cvskill{Google Apps Script}{\skillGoogleAppsScript}
-\cvskill{Jira}{\skillJira}
-\cvskill{Version Control}{\skillVersionControl}
-\cvskill{Data Analytics}{\skillDataAnalytics}
-\cvskill{Business Analysis}{\skillBusinessAnalysis}
-\cvskill{Microsoft Excel}{\skillMicrosoftExcel}
+\cvsection{Key Skills}
+\industryKnowledgeSkills
+
+\cvsection{Tools \& Technologies}
+\toolsTechnologiesSkills
+
+\cvsection{Interpersonal Skills}
+\interpersonalSkills
 
 \cvsection{Certifications}
 \begin{itemize}
@@ -170,8 +173,6 @@
   \item \href{\ciscoAnalyticsLink}{\ciscoDataAnalytics}
   \item \href{\ciscoITLink}{\ciscoITEssentials}
   \item \href{\ciscoPacketLink}{\ciscoPacketTracer}
-  \item \href{\tableauVisualizeLink}{\tableauVisualize}
-  \item \href{\tableauInteractLink}{\tableauInteract}
   \item \href{\githubLink}{\githubFoundations}
 \end{itemize}
 
@@ -179,14 +180,6 @@
 \mscEntry
 \divider
 \bscEntry
-
-\cvsection{Links}
-\href{https://www.linkedin.com/in/julianelliott/}{LinkedIn: julianelliott} \\
-\href{https://github.com/Julian-Elliott}{GitHub: Julian-Elliott} \\
-\href{https://www.credly.com/users/julian-elliott/badges}{Credly Profile}
-
-\cvsection{Interests}
-\personalInterests
 
 \end{paracol}
 
