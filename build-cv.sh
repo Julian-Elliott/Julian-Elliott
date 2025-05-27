@@ -154,21 +154,25 @@ compile_locally() {
     cd "$TEMPLATES_DIR" || return 1
     
     # Compile (first pass)
+    echo -e "${BLUE}  → First pass...${NC}"
     if [ "$VERBOSE" = true ]; then
         $latex_cmd "$(basename "$template")"
     else
         $latex_cmd "$(basename "$template")" >/dev/null 2>&1
     fi
     
-    if [ $? -eq 0 ]; then
+    local first_pass_result=$?
+    if [ $first_pass_result -eq 0 ]; then
         # Second pass for references
+        echo -e "${BLUE}  → Second pass...${NC}"
         if [ "$VERBOSE" = true ]; then
             $latex_cmd "$(basename "$template")"
         else
             $latex_cmd "$(basename "$template")" >/dev/null 2>&1
         fi
         
-        if [ $? -eq 0 ]; then
+        local second_pass_result=$?
+        if [ $second_pass_result -eq 0 ]; then
             # Move PDF to output directory with proper name
             local pdf_file="${template%.tex}.pdf"
             if [ -f "$(basename "$pdf_file")" ]; then
@@ -177,7 +181,19 @@ compile_locally() {
                 echo -e "${GREEN}  → $OUTPUT_DIR/$output_name${NC}"
                 cd .. || return 1
                 return 0
+            else
+                echo -e "${RED}✗ PDF file not generated: $(basename "$pdf_file")${NC}"
             fi
+        else
+            echo -e "${RED}✗ Second pass failed for $(basename "$template")${NC}"
+            if [ "$VERBOSE" != true ]; then
+                echo -e "${YELLOW}  Run with --verbose to see detailed errors${NC}"
+            fi
+        fi
+    else
+        echo -e "${RED}✗ First pass failed for $(basename "$template")${NC}"
+        if [ "$VERBOSE" != true ]; then
+            echo -e "${YELLOW}  Run with --verbose to see detailed errors${NC}"
         fi
     fi
     
@@ -247,14 +263,52 @@ else
     clean_aux_files
 fi
 
-echo ""
-echo -e "${GREEN}🎉 Build process complete!${NC}"
-echo ""
-echo "Generated files in $OUTPUT_DIR/:"
-ls -la "$OUTPUT_DIR"/*.pdf 2>/dev/null || echo "No PDF files found"
+# Function to validate build results
+validate_build() {
+    local success=true
+    echo ""
+    echo -e "${PURPLE}🎉 Build process complete!${NC}"
+    echo ""
+    echo "Generated files in $OUTPUT_DIR/:"
+    
+    if [ "$BUILD_MODERN" = true ]; then
+        if [ -f "$OUTPUT_DIR/Modern-CV.pdf" ]; then
+            echo -e "${GREEN}✓ Modern-CV.pdf${NC}"
+        else
+            echo -e "${RED}✗ Modern-CV.pdf (MISSING)${NC}"
+            success=false
+        fi
+    fi
+    
+    if [ "$BUILD_ATS" = true ]; then
+        if [ -f "$OUTPUT_DIR/ATS-Friendly-CV.pdf" ]; then
+            echo -e "${GREEN}✓ ATS-Friendly-CV.pdf${NC}"
+        else
+            echo -e "${RED}✗ ATS-Friendly-CV.pdf (MISSING)${NC}"
+            success=false
+        fi
+    fi
+    
+    if [ -z "$(ls -A $OUTPUT_DIR/*.pdf 2>/dev/null)" ]; then
+        echo -e "${RED}No PDF files found${NC}"
+        success=false
+    fi
+    
+    echo ""
+    if [ "$success" = true ]; then
+        echo -e "${GREEN}💡 Success! Your CVs are ready:${NC}"
+        echo "• Use Modern-CV.pdf for human reviewers and networking"
+        echo "• Use ATS-Friendly-CV.pdf for online job applications"
+        echo "• Run with --help to see all options"
+        return 0
+    else
+        echo -e "${RED}💡 Build Issues Detected:${NC}"
+        echo "• Check template syntax and data file paths"
+        echo "• Run with --verbose to see detailed compilation errors"
+        echo "• Ensure all required LaTeX packages are installed"
+        return 1
+    fi
+}
 
-echo ""
-echo -e "${BLUE}💡 Usage Tips:${NC}"
-echo "• Use Modern-CV.pdf for human reviewers and networking"
-echo "• Use ATS-Friendly-CV.pdf for online job applications"
-echo "• Run with --help to see all options"
+# Validate and report results
+validate_build

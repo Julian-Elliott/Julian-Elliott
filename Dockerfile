@@ -27,6 +27,13 @@ RUN tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet && \
     csquotes \
     biblatex \
     l3packages \
+    microtype \
+    iftex \
+    fontspec \
+    tgtermes \
+    tgheros \
+    pgf \
+    tikz \
     || echo "Some packages may already be installed"
 
 # Download and install altacv manually since it's not in the standard repository
@@ -36,8 +43,9 @@ RUN echo "Installing altacv class manually..." && \
     curl -L -o altacv.zip "https://github.com/liantze/altacv/archive/refs/heads/main.zip" && \
     unzip altacv.zip && \
     mkdir -p /usr/local/texlive/texmf-local/tex/latex/altacv && \
-    cp AltaCV-main/*.cls /usr/local/texlive/texmf-local/tex/latex/altacv/ && \
-    cp AltaCV-main/*.sty /usr/local/texlive/texmf-local/tex/latex/altacv/ 2>/dev/null || true && \
+    find . -name "*.cls" -exec cp {} /usr/local/texlive/texmf-local/tex/latex/altacv/ \; && \
+    find . -name "*.sty" -exec cp {} /usr/local/texlive/texmf-local/tex/latex/altacv/ \; 2>/dev/null || true && \
+    texhash && \
     mktexlsr && \
     cd / && \
     rm -rf /tmp/altacv
