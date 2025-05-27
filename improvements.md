@@ -6,3 +6,9 @@
 - Consider how I'll fit my relevant github projects into the layout.
 
 - Standardise the look/feel/brand accross Github, linkedin and my CV and cover letter.
+
+- Split this repo into backend and frontend style where the workings are not in the way of the content of the CV.
+
+- Re-factor the code so we dont havbe to use so many files to produce our CVs
+
+- Design an standard method to customise ethe CV to best suit a given job specification.
