@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%
+% Professional Cover Letter Template - LaTeX CV System
+% Designed to complement the CV template system
+% 
+% Purpose: Express Personality, Circumstance, Current Ability, 
+%          Future Potential, Emotion, and Human Connection
+% 
+% Optimized for:
+% - Human readers and emotional connection
+% - Professional typography matching CV brand
+% - Modular content management
+% - Easy customization per role
+%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper]{letter}
+
+% Color package configuration
+\usepackage[dvipsnames,table]{xcolor}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{iftex}
+
+% Page layout
+\usepackage[margin=2.5cm]{geometry}
+
+% Enhanced typography
+\usepackage{setspace}
+\setstretch{1.15}
+
+% Professional fonts - matching CV system
+\iftutex
+  % XeLaTeX/LuaLaTeX: Use system fonts
+  \usepackage{fontspec}
+  \setmainfont{Times New Roman}
+  \setsansfont{Helvetica}
+  \renewcommand{\familydefault}{\rmdefault}
+\else
+  % PDFLaTeX: Use package fonts
+  \usepackage{tgtermes}
+  \usepackage{tgheros}
+  \renewcommand{\familydefault}{\rmdefault}
+\fi
+
+% Professional color scheme - matching CV brand
+\definecolor{VividPurple}{HTML}{3E0097}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+
+% Hyperlinks configuration
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=VividPurple,
+    urlcolor=VividPurple,
+    citecolor=VividPurple,
+    filecolor=VividPurple,
+    pdfpagemode=UseNone,
+    pdfstartview=FitH
+}
+
+% Load shared data modules - single source of truth
+\input{../data/personal-info}
+\input{../data/cover-letter-content}
+
+% Letter configuration
+\signature{\myname}
+\address{\myname \\ \mylocation \\ \myphone \\ \myemail}
+
+% Document metadata
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle={Cover Letter - \myname},
+    pdfauthor={\myname},
+    pdfsubject={Cover Letter for \jobTitle\ at \companyName},
+    pdfkeywords={Cover Letter, \myname, \jobTitle, \companyName}
+  }
+}
+
+\begin{document}
+
+\begin{letter}{\recipientName \\ \recipientTitle \\ \companyName \\ \companyAddress}
+
+\opening{\salutation}
+
+% PARAGRAPH 1: PERSONALITY & CIRCUMSTANCE
+% Purpose: Immediate human connection, show personality, explain why you're writing
+{\color{SlateGrey}
+\personalityIntro
+}
+
+% PARAGRAPH 2: CURRENT ABILITY & SPECIFIC VALUE
+% Purpose: Demonstrate understanding of their needs and your relevant experience
+{\color{SlateGrey}
+\currentAbilityParagraph
+}
+
+% PARAGRAPH 3: FUTURE POTENTIAL & VISION
+% Purpose: Show growth mindset and long-term value proposition
+{\color{SlateGrey}
+\futurePotentialParagraph
+}
+
+% PARAGRAPH 4: EMOTION & HUMAN CONNECTION
+% Purpose: Express genuine enthusiasm and personal motivation
+{\color{SlateGrey}
+\emotionalConnectionParagraph
+}
+
+% CLOSING: CALL TO ACTION
+% Purpose: Professional close with clear next steps
+\closing{\closingStatement}
+
+% Optional: P.S. for human touch
+\ps{\psNote}
+
+\end{letter}
+
+\end{document}

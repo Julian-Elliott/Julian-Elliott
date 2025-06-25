@@ -1,0 +1,77 @@
+% Example Job-Specific Cover Letter
+% Company: TechCorp Solutions
+% Role: Senior Data Analyst
+% 
+% This demonstrates how to customize the cover letter template
+% for a specific application
+
+\documentclass[11pt,a4paper]{letter}
+
+% Include the base cover letter setup
+\input{cover-letter}
+
+% ============================================================================
+% JOB-SPECIFIC CUSTOMIZATIONS
+% ============================================================================
+
+% Company and role details
+\renewcommand{\jobTitle}{Senior Data Analyst}
+\renewcommand{\companyName}{TechCorp Solutions}
+\renewcommand{\companyAddress}{123 Innovation Drive\\London, UK SW1A 1AA}
+\renewcommand{\recipientName}{Sarah Johnson}
+\renewcommand{\recipientTitle}{Head of Analytics}
+\renewcommand{\salutation}{Dear Ms. Johnson,}
+
+% ============================================================================
+% CONTENT CUSTOMIZATION FOR TECH COMPANY
+% ============================================================================
+
+% Use tech-focused personality intro
+\renewcommand{\personalityIntro}{\personalityIntroTechFocus}
+
+% Use ML-focused ability paragraph for senior analyst role
+\renewcommand{\currentAbilityParagraph}{\currentAbilityParagraphML}
+
+% Use innovation-focused future potential for tech company
+\renewcommand{\futurePotentialParagraph}{\futurePotentialParagraphInnovation}
+
+% Use mission-focused emotional connection
+\renewcommand{\emotionalConnectionParagraph}{\emotionalConnectionParagraphMission}
+
+% Use confident closing for senior role
+\renewcommand{\closingStatement}{\closingStatementConfident}
+
+% Company-specific P.S. note based on research
+\renewcommand{\psNote}{%
+P.S. I was impressed by TechCorp's recent expansion into AI-driven predictive analytics. Having worked with machine learning models in my current role, I'd be excited to discuss how my automation expertise could accelerate these innovative initiatives.
+}
+
+\begin{document}
+
+\begin{letter}{\recipientName \\ \recipientTitle \\ \companyName \\ \companyAddress}
+
+\opening{\salutation}
+
+{\color{SlateGrey}
+\personalityIntro
+}
+
+{\color{SlateGrey}
+\currentAbilityParagraph
+}
+
+{\color{SlateGrey}
+\futurePotentialParagraph
+}
+
+{\color{SlateGrey}
+\emotionalConnectionParagraph
+}
+
+\closing{\closingStatement}
+
+\ps{\psNote}
+
+\end{letter}
+
+\end{document}

@@ -89,14 +89,15 @@ Outside my studies, you'll find me tinkering away in my personal **homelab**, wh
 🎯 33% Sales Growth        🏅 Multiple Certifications  🚀 Process Innovation
 ```
 
-## 📄 Professional CV Template System
+## 📄 Professional CV & Cover Letter System
 
-This repository features a **world-class LaTeX CV automation system** with:
+This repository features a **world-class LaTeX document automation system** with:
 
 ### ✨ Key Features
 - 🎯 **Single Source of Truth**: Centralized content management
-- 🎨 **Dual Formats**: Modern visual CV + ATS-friendly version  
-- 🐳 **Docker Integration**: Consistent builds across platforms
+- 🎨 **Dual CV Formats**: Modern visual CV + ATS-friendly version  
+- � **Cover Letter Templates**: Modular, personality-driven cover letters
+- �🐳 **Docker Integration**: Consistent builds across platforms
 - 🚀 **CI/CD Pipeline**: Automated testing and validation
 - 🔧 **Developer Tools**: VS Code workspace with full automation
 
@@ -108,9 +109,21 @@ cd Julian-Elliott
 chmod +x build-cv.sh validate-cv.sh
 ./validate-cv.sh  # Check system health
 ./build-cv.sh     # Build both CV formats
+./build-cv.sh --cover-letter  # Build cover letter template
+./build-cv.sh --all  # Build everything
 ```
 
-**Recent Update**: Build system fully restored! Both modern and ATS-friendly CVs now compile successfully with enhanced error handling and CI/CD pipeline.
+**Recent Update**: Cover letter system added! Create professional, personality-driven cover letters that complement your CV and address the human elements of job applications.
+
+### 📝 Cover Letter System
+The cover letter templates focus on the five key purposes:
+- **Personality**: Show who you are beyond the CV
+- **Circumstance**: Provide context for your application
+- **Current Ability & Future Potential**: Demonstrate value and growth
+- **Emotion**: Create genuine human connection
+- **Human Eye**: Optimized for human readers
+
+See [COVER-LETTER.md](COVER-LETTER.md) for complete documentation.
 
 ---
 

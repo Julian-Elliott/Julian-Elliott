@@ -1,0 +1,109 @@
+% Job-Specific Cover Letter Customization Template
+% Copy this file and customize for each application
+% Save as: cover-letter-[company-name].tex
+
+% ============================================================================
+% CUSTOMIZATION INSTRUCTIONS
+% ============================================================================
+% 1. Update job and company details below
+% 2. Choose appropriate paragraph variants (or create custom ones)
+% 3. Personalize the P.S. note with specific company research
+% 4. Build using: xelatex cover-letter-[company-name].tex
+% ============================================================================
+
+\documentclass[11pt,a4paper]{letter}
+
+% Include the base cover letter setup
+\input{cover-letter}
+
+% ============================================================================
+% JOB-SPECIFIC CUSTOMIZATIONS
+% ============================================================================
+
+% Override default job information
+\renewcommand{\jobTitle}{Senior Data Analyst}
+\renewcommand{\companyName}{TechCorp Solutions}
+\renewcommand{\companyAddress}{123 Innovation Drive\\London, UK}
+\renewcommand{\recipientName}{Sarah Johnson}
+\renewcommand{\recipientTitle}{Head of Analytics}
+\renewcommand{\salutation}{Dear Ms. Johnson,}
+
+% ============================================================================
+% CONTENT CUSTOMIZATION
+% ============================================================================
+% Choose which paragraph variants to use, or create custom ones below
+
+% Personality paragraph - choose one:
+% \personalityIntro (default)
+% \personalityIntroStartup (for startups/scale-ups)
+% \personalityIntroTechFocus (for technical roles)
+
+% Current ability paragraph - choose one:
+% \currentAbilityParagraph (default)
+% \currentAbilityParagraphML (for ML/AI focused roles)
+% \currentAbilityParagraphAutomation (for automation-heavy roles)
+
+% Future potential paragraph - choose one:
+% \futurePotentialParagraph (default)
+% \futurePotentialParagraphInnovation (for innovation-focused companies)
+% \futurePotentialParagraphLeadership (for senior/lead roles)
+
+% Emotional connection paragraph - choose one:
+% \emotionalConnectionParagraph (default)
+% \emotionalConnectionParagraphMission (for mission-driven companies)
+% \emotionalConnectionParagraphGrowth (for growth-stage companies)
+
+% Closing - choose one:
+% \closingStatement (default)
+% \closingStatementConfident (for confident tone)
+% \closingStatementCollaborative (for collaborative emphasis)
+
+% P.S. note - customize based on company research
+\renewcommand{\psNote}{%
+P.S. I was impressed by TechCorp's recent expansion into AI-driven analytics. I'd love to discuss how my automation expertise could support these exciting new initiatives.
+}
+
+% ============================================================================
+% CUSTOM PARAGRAPHS (OPTIONAL)
+% ============================================================================
+% Create completely custom content for this specific application
+
+% Example custom personality intro:
+% \renewcommand{\personalityIntro}{%
+% [Your custom introduction that specifically addresses this company/role]
+% }
+
+% Example custom ability paragraph:
+% \renewcommand{\currentAbilityParagraph}{%
+% [Your custom ability paragraph highlighting most relevant experience]
+% }
+
+\begin{document}
+
+\begin{letter}{\recipientName \\ \recipientTitle \\ \companyName \\ \companyAddress}
+
+\opening{\salutation}
+
+{\color{SlateGrey}
+\personalityIntro
+}
+
+{\color{SlateGrey}
+\currentAbilityParagraph
+}
+
+{\color{SlateGrey}
+\futurePotentialParagraph
+}
+
+{\color{SlateGrey}
+\emotionalConnectionParagraph
+}
+
+\closing{\closingStatement}
+
+\ps{\psNote}
+
+\end{letter}
+
+\end{document}

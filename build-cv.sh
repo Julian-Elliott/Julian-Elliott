@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Universal CV Build System
+# Universal CV & Cover Letter Build System
 # This script works for any user who has set up the template
 
-echo "🚀 CV Build System"
-echo "=================="
+echo "🚀 CV & Cover Letter Build System"
+echo "=================================="
 
 # Colors for output
 RED='\033[0;31m'
@@ -30,6 +30,8 @@ show_help() {
     echo "  -l, --local         Use local LaTeX installation"
     echo "  -m, --modern        Build only modern CV"
     echo "  -a, --ats           Build only ATS-friendly CV"
+    echo "  --cover-letter      Build cover letter template"
+    echo "  --all               Build CVs and cover letter"
     echo "  -c, --clean         Clean output directory before building"
     echo "  -v, --verbose       Show detailed compilation output"
     echo ""
@@ -37,6 +39,8 @@ show_help() {
     echo "  $0                  # Build both CVs using best available method"
     echo "  $0 --docker         # Force Docker compilation"
     echo "  $0 --modern         # Build only modern CV"
+    echo "  $0 --cover-letter   # Build cover letter template"
+    echo "  $0 --all            # Build CVs and cover letter"
     echo "  $0 --clean --docker # Clean and build with Docker"
     echo ""
 }
@@ -46,6 +50,8 @@ USE_DOCKER=""
 USE_LOCAL=""
 BUILD_MODERN=true
 BUILD_ATS=true
+BUILD_COVER_LETTER=false
+BUILD_ALL=false
 CLEAN_OUTPUT=false
 VERBOSE=false
 
@@ -68,6 +74,14 @@ while [[ $# -gt 0 ]]; do
         -a|--ats)
             BUILD_MODERN=false
             BUILD_ATS=true
+            ;;
+        --cover-letter)
+            BUILD_COVER_LETTER=true
+            ;;
+        --all)
+            BUILD_MODERN=true
+            BUILD_ATS=true
+            BUILD_COVER_LETTER=true
             ;;
         -c|--clean)
             CLEAN_OUTPUT=true
@@ -228,6 +242,31 @@ clean_aux_files() {
     echo -e "${GREEN}✓ Auxiliary files cleaned${NC}"
 }
 
+# Function to build cover letter template
+build_cover_letter_template() {
+    echo -e "${BLUE}📝 Building cover letter template...${NC}"
+    
+    # Check if cover letter content file exists
+    if [ ! -f "data/cover-letter-content.tex" ]; then
+        echo -e "${YELLOW}⚠ Cover letter content file not found. Creating template...${NC}"
+        echo "% Cover letter content template - customize for each application" > data/cover-letter-content.tex
+        echo "% See templates/cover-letter-template.tex for usage examples" >> data/cover-letter-content.tex
+    fi
+    
+    local LATEX_CMD="$1"
+    if compile_locally "$LATEX_CMD" "$TEMPLATES_DIR/cover-letter.tex" "Cover-Letter-Template.pdf"; then
+        echo -e "${GREEN}✓ Cover letter template built successfully${NC}"
+        echo -e "${BLUE}ℹ️  To customize for specific applications:${NC}"
+        echo -e "${BLUE}   1. Copy templates/cover-letter-template.tex${NC}"
+        echo -e "${BLUE}   2. Customize job and company details${NC}"
+        echo -e "${BLUE}   3. Build with: xelatex your-custom-cover-letter.tex${NC}"
+        return 0
+    else
+        echo -e "${RED}✗ Cover letter template build failed${NC}"
+        return 1
+    fi
+}
+
 # Main execution
 echo -e "${PURPLE}Building CV for: $(whoami)${NC}"
 
@@ -278,6 +317,13 @@ else
         fi
     fi
     
+    # Compile cover letter
+    if [ "$BUILD_COVER_LETTER" = true ]; then
+        if ! build_cover_letter_template "$LATEX_CMD"; then
+            echo -e "${YELLOW}⚠ Cover letter compilation failed${NC}"
+        fi
+    fi
+    
     # Clean auxiliary files
     clean_aux_files
 fi
@@ -308,6 +354,15 @@ validate_build() {
         fi
     fi
     
+    if [ "$BUILD_COVER_LETTER" = true ]; then
+        if [ -f "$OUTPUT_DIR/Cover-Letter-Template.pdf" ]; then
+            echo -e "${GREEN}✓ Cover-Letter-Template.pdf${NC}"
+        else
+            echo -e "${RED}✗ Cover-Letter-Template.pdf (MISSING)${NC}"
+            success=false
+        fi
+    fi
+    
     if [ -z "$(ls -A $OUTPUT_DIR/*.pdf 2>/dev/null)" ]; then
         echo -e "${RED}No PDF files found${NC}"
         success=false
@@ -315,9 +370,10 @@ validate_build() {
     
     echo ""
     if [ "$success" = true ]; then
-        echo -e "${GREEN}💡 Success! Your CVs are ready:${NC}"
+        echo -e "${GREEN}💡 Success! Your CVs and cover letter are ready:${NC}"
         echo "• Use Modern-CV.pdf for human reviewers and networking"
         echo "• Use ATS-Friendly-CV.pdf for online job applications"
+        echo "• Use Cover-Letter.pdf for your job applications"
         echo "• Run with --help to see all options"
         return 0
     else
