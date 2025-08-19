@@ -10,27 +10,34 @@
 %   1 = Beginner level, requires significant support
 
 % Technical Skills with Ratings (for AltaCV visual representation)
-\newcommand{\skillPython}{5}           % Expert: Advanced automation, data science
-\newcommand{\skillSQL}{5}              % Expert: Complex queries, optimization
+\newcommand{\skillPython}{4}           % Advanced: Advanced automation, data science
+\newcommand{\skillSQL}{3}              % Intermediate: Complex queries, optimisation
 \newcommand{\skillTableau}{4}          % Advanced: Dashboard design, calculated fields
-\newcommand{\skillPowerBI}{4}          % Advanced: Data modeling, DAX
-\newcommand{\skillBluePrism}{5}        % Expert: Architecture, mentoring
+\newcommand{\skillTableauPrep}{3}      % Intermediate: Data preparation and cleaning
+\newcommand{\skillPowerBI}{3}          % Intermediate: Data modeling, DAX
+\newcommand{\skillMicrosoftExcel}{5}   % Expert: Advanced formulas, VBA
+\newcommand{\skillBluePrism}{4}        % Advanced: Architecture, mentoring
 \newcommand{\skillUiPath}{3}           % Intermediate: Process automation
-\newcommand{\skillGoogleAppsScript}{4} % Advanced: Custom solutions
+\newcommand{\skillWorkflowAutomation}{2} % Intermediate: n8n workflow automation
+\newcommand{\skillSixSigma}{3}         % Intermediate: Process improvement methodology
 \newcommand{\skillJira}{5}             % Expert: Administration, workflows
 \newcommand{\skillVersionControl}{5}   % Expert: Git workflows, branching strategies
-\newcommand{\skillDataAnalytics}{5}    % Expert: Statistical analysis, ML
-\newcommand{\skillBusinessAnalysis}{5} % Expert: Requirements, process design
-\newcommand{\skillMicrosoftExcel}{5}   % Expert: Advanced formulas, VBA
+\newcommand{\skillAIAssistedDev}{4}    % Advanced: GitHub Copilot with Claude 4, AI-powered development
+\newcommand{\skillGoogleAppsScript}{4} % Advanced: Custom solutions
+\newcommand{\skillAzure}{2}            % Novice: Certified, cloud solutions
+\newcommand{\skillDocker}{2}           % Novice: Containerization, homelab
+\newcommand{\skillKubernetes}{1}       % Beginner: Learning in homelab environment
+\newcommand{\skillLLMIntegration}{2}   % Novice: Current learning focus
 
 % Technical Skills List (for ATS-friendly CV)
 \newcommand{\programmingLanguages}{Python, SQL, Visual Basic, Google Apps Script}
-\newcommand{\analyticsTools}{Tableau, Power BI, Snowflake, Microsoft Excel}
-\newcommand{\automationPlatforms}{Blue Prism, UiPath}
-\newcommand{\projectManagement}{Jira, Agile methodologies}
-\newcommand{\versionControl}{Git, GitHub}
-\newcommand{\cloudPlatforms}{Microsoft Azure}
-\newcommand{\specializations}{Business Analysis, Data Analytics, Process Automation, Team Mentoring}
+\newcommand{\analyticsTools}{Tableau, Tableau Prep, Power BI, Snowflake, Microsoft Excel}
+\newcommand{\automationPlatforms}{Blue Prism, UiPath, n8n workflows}
+\newcommand{\cloudPlatforms}{Microsoft Azure, Docker, Kubernetes}
+\newcommand{\projectManagement}{Jira, Agile methodologies, Six Sigma}
+\newcommand{\versionControl}{Git, GitHub, GitHub Copilot with Claude 4}
+\newcommand{\emergingTech}{LLMs/AI integration, AI-assisted development, IoT automation, Real-time analytics}
+\newcommand{\specializations}{Process Automation, Six Sigma, Team Mentoring, Digital Transformation}
 
 % Certifications
 \newcommand{\azureDataFundamentals}{Azure Data Fundamentals (Microsoft)}
@@ -42,17 +49,18 @@
 \newcommand{\githubFoundations}{GitHub Foundations}
 
 % Certification Links (update these with actual Credly URLs)
-\newcommand{\azureLink}{https://www.credly.com/badges/your-azure-badge-id}
-\newcommand{\ciscoAnalyticsLink}{https://www.credly.com/badges/your-cisco-analytics-badge-id}
-\newcommand{\ciscoITLink}{https://www.credly.com/badges/your-cisco-it-badge-id}
-\newcommand{\ciscoPacketLink}{https://www.credly.com/badges/your-cisco-packet-badge-id}
-\newcommand{\tableauVisualizeLink}{https://www.credly.com/badges/your-tableau-visualize-badge-id}
-\newcommand{\tableauInteractLink}{https://www.credly.com/badges/your-tableau-interact-badge-id}
-\newcommand{\githubLink}{https://www.credly.com/badges/your-github-badge-id}
+\newcommand{\azureLink}{https://www.credly.com/badges/798be02b-0245-4f31-b054-a8417981dce0}
+\newcommand{\ciscoAnalyticsLink}{https://www.credly.com/badges/8c39dff0-00ea-45e3-b2d3-dfc94cdd3b72}
+\newcommand{\ciscoITLink}{https://www.credly.com/badges/a58a1177-fd2a-4a72-bb0e-ba622dd6c437}
+\newcommand{\ciscoPacketLink}{https://www.credly.com/badges/ae98181e-44c4-441e-b9ea-21de80b6f28d}
+\newcommand{\tableauVisualizeLink}{https://www.credly.com/badges/f8bd0c2c-f273-41cb-b2ce-cde9ebe38e8f}
+\newcommand{\tableauInteractLink}{https://www.credly.com/badges/e3d481c7-bb41-496c-8a7d-2f5778b80877}
+\newcommand{\githubLink}{https://www.credly.com/badges/99a00944-dca8-4bb5-8193-335a9e958391}
 
 % Areas of Interest
-\newcommand{\professionalInterests}{Data democratization, LLM integration in business intelligence, real-time analytics, logistics optimization}
-\newcommand{\personalInterests}{Surfing, gardening (fruits and vegetables), tech podcasts, collaborative gaming, cultural exploration}
+\newcommand{\professionalInterests}{Data democratisation, LLM integration in business intelligence, real-time analytics for logistics optimisation, automation excellence, self-hosted analytics solutions}
+\newcommand{\personalInterests}{Growing veg (and blueberries, houseplants), watching D\&D, gaming, sci-fi fantasy, tech podcasts}
+\newcommand{\homelabProjects}{Docker \& Kubernetes containerization, network security, IoT integration, self-hosted monitoring solutions, n8n automation workflows}
 
 % =========================
 % SKILL GROUPS FOR CV SECTIONS
@@ -60,10 +68,10 @@
 
 % Industry Knowledge
 \newcommand{\industryKnowledgeSkills}{%
-  \skilltile{Business Analysis}
-  \skilltile{Data Analytics}\\[1pt]
   \skilltile{Process Automation}
+  \skilltile{Six Sigma}\\[1pt]
   \skilltile{Project Management}
+  \skilltile{Digital Transformation}
   % Add more as needed, e.g. \skilltile{Logistics Optimisation}
 }
 
@@ -71,14 +79,23 @@
 \newcommand{\toolsTechnologiesSkills}{%
   \skilltile{Python}
   \skilltile{SQL}
+  \skilltile{Excel}
+  \skilltile{Apps Script}\\[1pt]
   \skilltile{Tableau}
-  \skilltile{Power BI}\\[1pt]
+  \skilltile{Tableau Prep}
+  \skilltile{Power BI}
+  \skilltile{Snowflake}\\[1pt]
   \skilltile{Blue Prism}
   \skilltile{UiPath}
+  \skilltile{n8n}
   \skilltile{Jira}\\[1pt]
   \skilltile{Git}
-  \skilltile{Excel}
-  \skilltile{Apps Script}
+  \skilltile{GitHub Copilot}
+  \skilltile{AI-Assisted Dev}\\[1pt]
+  \skilltile{Azure}
+  \skilltile{Docker}
+  \skilltile{Kubernetes}
+  \skilltile{LLM Integration}
   % Add more as needed
 }
 
