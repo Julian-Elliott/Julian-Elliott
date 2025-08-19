@@ -130,11 +130,18 @@ See [COVER-LETTER.md](COVER-LETTER.md) for complete documentation.
 ## 🌍 Beyond the Code
 
 When I'm not diving deep into data or automation:
-- 🏄‍♂️ **Surfing** - Finding balance on the waves
-- 🌱 **Gardening** - Growing apples, blueberries, and houseplants
+- 🧗‍♂️ **Bouldering** - Problem-solving through physical challenges
+- 🚶‍♂️ **Canal Walks** - Finding inspiration in peaceful waterside paths
+- 🌱 **Growing Vegetables** - Cultivating fresh produce and patience
+- 🖨️ **3D Printing & Electronics** - Creating and tinkering with technology
+- 🪑 **Furniture Design** - Crafting functional, beautiful pieces
+- ☀️ **Solar Power Projects** - Exploring sustainable energy solutions
+- 🎲 **D&D & Board Games** - Strategic thinking and creative storytelling
+- 🎮 **Gaming & Sci-fi Fantasy** - Immersing in imaginative worlds
 - 🎧 **Tech Podcasts** - Staying current with industry trends
-- 🎮 **Collaborative Gaming** - Building connections through play
-- 🌎 **Cultural Exploration** - Learning through travel and storytelling
+- 🧘‍♂️ **Mindfulness & Coffee** - Finding balance through reflection
+
+*Note: While these personal interests appear in this README, the professional CV maintains a streamlined focus on technical skills and academic achievements for maximum professional impact.*
 
 ## 📊 GitHub Stats
 
