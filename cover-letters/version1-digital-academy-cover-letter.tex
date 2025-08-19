@@ -1,0 +1,109 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt, a4paper]{moderncv}
+
+% Color package configuration (matching CV)
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+
+% Include common packages and settings
+\input{../templates/common-packages.tex}
+
+% Font configuration - matching CV style
+\usepackage[rm]{roboto}
+\usepackage[defaultsans]{lato}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Professional color scheme - matching CV brand identity
+\definecolor{VividPurple}{HTML}{3E0097}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{AccentBlue}{HTML}{0066CC}
+
+% moderncv themes with custom colors
+\moderncvstyle{banking}
+\moderncvcolor{purple}
+
+% Custom color overrides to match CV
+\colorlet{color0}{black}
+\colorlet{color1}{VividPurple}
+\colorlet{color2}{SlateGrey}
+
+% Personal data from centralized file
+\input{../data/personal-info.tex}
+
+% Adjust margins to match CV spacing
+\usepackage[scale=0.8, top=1.5cm, bottom=2cm, left=1.25cm, right=1.25cm]{geometry}
+
+% Hyperref setup for links with brand colors
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=VividPurple,
+    urlcolor=AccentBlue,
+    citecolor=VividPurple
+}
+
+% Custom section styling to match CV
+\renewcommand*{\cvcomputer}[4]{%
+  \cvdoubleitem{\textcolor{VividPurple}{\textbf{#1}}}{#2}{\textcolor{VividPurple}{\textbf{#3}}}{#4}}
+
+% Enhanced bullet points with brand colors
+\renewcommand{\labelitemi}{\textcolor{VividPurple}{$\bullet$}}
+
+% TikZ for circular photo
+\usepackage{tikz}
+
+\begin{document}
+
+% Recipient information
+\recipient{\textcolor{VividPurple}{Early Careers Recruitment Team}}{\textcolor{VividPurple}{Version 1\\Birmingham Digital Skills Academy\\Birmingham, United Kingdom}}
+\date{\textcolor{VividPurple}{\today}}
+\opening{Dear Version 1 Early Careers Team,}
+\closing{Yours sincerely,}
+
+\makelettertitle
+
+I am excited to apply for the Birmingham Digital Skills Academy programme starting October 2025. Your commitment to delivering quality change at pace through cutting-edge technology aligns with my excitement for customer-obsessed, data-driven and solution-focused innovation.
+
+\textcolor{VividPurple}{Why I'm the Right Fit}
+
+With 14+ years delivering customer-focused solutions, I thrive on overcoming legacy system obstacles with reliable, data-led approaches. At John Lewis Partnership, I delivered \textcolor{VividPurple}{£2M+ annual savings} through automation, consistently turning complex technical challenges into clear business value. I don't plan to implement technology, I plan to wield the tools at our disposal to deliver business value that targets customer pain points, check they are satisfied and provide the foundation for continuous improvement.
+
+Your recent £190M partnership with Lincolnshire County Council to transform citizen services demonstrates exactly the kind of impactful, AI-driven innovation I want to contribute to. Version 1's approach of leveraging technology to enhance people's lives and support thriving communities resonates strongly with my experience and values.
+
+Having worked at John Lewis Partnership, I deeply value organisations with strong principles centred on customers and employees. Version 1's Strength in Balance model, which emphasises a balanced focus on customers, people, and a strong organisation, aligns perfectly with the Partnership ethos I've experienced. I want to work for an organisation that has strong values focused on its customers and employees, and Version 1 clearly demonstrates this commitment.
+
+\textcolor{VividPurple}{Proven Track Record}
+
+\begin{itemize}
+\item \textcolor{VividPurple}{Solution-Focused:} Led automation initiatives that cut through legacy complexity to deliver measurable results
+\item \textcolor{VividPurple}{Customer-Obsessed:} 7+ years in customer-facing roles, always prioritising user needs and business outcomes  
+\item \textcolor{VividPurple}{Data-Driven:} Currently pursuing MSc Data Analytics, with hands-on experience in Python, SQL, Azure, and advanced analytics
+\end{itemize}
+
+\textcolor{VividPurple}{Ready to Deliver}
+
+I'm drawn to your 21-month programme because it mirrors my approach: solid foundations, practical application, and continuous learning. The emphasis on consultancy skills, customer interaction, and creative problem-solving aligns perfectly with my strengths and career aspirations.
+
+I'm obsessed with learning, and am eager to invest in myself to learn more about the solutions offered by the many industry partners of Version 1. I'm particularly eager to improve my understanding of Snowflake and Microsoft Azure, as well as jumping into the fray with new platforms I haven't worked with - AWS, Oracle, RedHat, and OutSystems. The opportunity to gain certifications across this comprehensive technology stack represents exactly the kind of skill development that excites me most.
+
+Your hybrid Birmingham model works perfectly for my ongoing studies, and I'm excited about earning industry certifications while contributing to real client transformations from day one.
+
+\vspace{0.5cm}
+\textcolor{VividPurple}{I deliver reliable answers that move projects forward.} I'd welcome the opportunity to discuss how my customer-focused, data-driven approach can contribute to Version 1's continued success in transforming businesses through technology.
+
+Thank you for considering my application.
+
+\makeletterclosing
+
+% Add photo at bottom of page
+\vspace{1cm}
+\begin{center}
+\begin{tikzpicture}
+\clip (0,0) circle (1.5cm);
+\node at (0,0) {\includegraphics[width=3cm]{../julian-elliott-photo.jpg}};
+\end{tikzpicture}
+\end{center}
+
+\end{document}
