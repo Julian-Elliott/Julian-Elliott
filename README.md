@@ -12,7 +12,6 @@ I'm passionate about turning raw data, both structured and unstructured, into ac
 - 🏆 **£2M+ annual savings** through automation solutions
 - 📈 **50% efficiency improvements** in product onboarding processes
 - 👥 **Technical leadership** in Blue Prism, UiPath, and data analytics
-- 🎯 **33% sales growth** through data-driven strategies
 
 ## 🛠️ Technical Arsenal
 
@@ -85,8 +84,7 @@ Outside my studies, you'll find me tinkering away in my personal **homelab**, wh
 ## 🏆 Key Achievements
 
 ```
-💰 £2M+ Annual Savings     📈 50% Efficiency Gains     👥 14+ Years Experience
-🎯 33% Sales Growth        🏅 Multiple Certifications  🚀 Process Innovation
+💰 £2M+ Annual Savings     📈 50% Efficiency Gains     👥 14+ Years Experience      🏅 Multiple Certifications  🚀 Process Innovation
 ```
 
 ## 📄 Professional CV & Cover Letter System
