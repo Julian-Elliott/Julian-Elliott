@@ -79,7 +79,7 @@ Outside my studies, you'll find me tinkering away in my personal **homelab**, wh
 - Enhanced customer experience through data-driven insights
 
 **Technology Selling Partner** @ John Lewis Partnership (2013-2020)
-- Achieved 33% sales growth through strategic leadership
+- Achieved customer service regonitions year on year
 
 ## 🏆 Key Achievements
 
