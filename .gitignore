@@ -1,0 +1,121 @@
+# Ignore ALL files by default, then whitelist specific ones
+*
+
+# Allow only the final CV and documentation
+!julian-elliott-cv.pdf
+!README.md
+!.gitignore
+
+*.out# Personal configuration (users may want to keep private)
+
+*.fdb_latexmkconfig/my-cv-config.yaml
+
+*.fls
+
+*.synctex.gz# Generated PDFs (optional - remove these lines if you want to track PDFs)
+
+*.toc*-CV.pdf
+
+*.lof*.pdf
+
+*.lot
+
+*.bbl# Personal photos (users should add their own)
+
+*.blg*-photo.jpg
+
+*.idx!julian-elliott-photo.jpg  # Keep example photo
+
+*.ind
+
+*.ilg# macOS specific files
+
+*.xdv.DS_Store
+
+*.pdf.DS_Store?
+
+*.png._*
+
+*.jpg.Spotlight-V100
+
+*.jpeg.Trashes
+
+ehthumbs.db
+
+# Re-allow the specific CV fileThumbs.db
+
+!julian-elliott-cv.pdf
+
+# Temporary files
+
+# macOS system files*~
+
+.DS_Store.#*
+
+.DS_Store?\#*#
+
+._*
+
+.Spotlight-V100# Backup files
+
+.Trashes*~
+
+.AppleDouble*.backup
+
+.LSOverride*-old.md
+
+.DocumentRevisions-V100
+
+.fseventsd# macOS
+
+.TemporaryItems.DS_Store
+
+.VolumeIcon.icns.AppleDouble
+
+.com.apple.timemachine.donotpresent.LSOverride
+
+.AppleDB
+
+.AppleDesktop# Thumbnails
+
+Network Trash Folder._*
+
+Temporary Items
+
+.apdisk# Files that might appear in the root of a volume
+
+.DocumentRevisions-V100
+
+# IDE/Editor files.fseventsd
+
+.vscode/.Spotlight-V100
+
+.idea/.TemporaryItems
+
+*.swp.Trashes
+
+*.swo.VolumeIcon.icns
+
+*~.com.apple.timemachine.donotpresent
+
+
+
+# Temporary files# Directories potentially created on remote AFP share
+
+*.tmp.AppleDB
+
+*.temp.AppleDesktop
+
+*.backupNetwork Trash Folder
+Temporary Items
+.apdisk
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
